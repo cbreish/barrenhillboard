@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "site", "site.njsproj", "{5205B162-BF44-4B8E-BF53-FBEC6C6CC509}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "Githook", "..\Githook\Githook.njsproj", "{9EBAC1F8-3EFB-4CF3-875A-548007DB2D1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5205B162-BF44-4B8E-BF53-FBEC6C6CC509}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5205B162-BF44-4B8E-BF53-FBEC6C6CC509}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5205B162-BF44-4B8E-BF53-FBEC6C6CC509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EBAC1F8-3EFB-4CF3-875A-548007DB2D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EBAC1F8-3EFB-4CF3-875A-548007DB2D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EBAC1F8-3EFB-4CF3-875A-548007DB2D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EBAC1F8-3EFB-4CF3-875A-548007DB2D1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

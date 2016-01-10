@@ -1,0 +1,10 @@
+{
+  "name": "Githook",
+  "version": "0.0.0",
+  "description": "Githook",
+  "main": "app.js",
+  "author": {
+    "name": "chris",
+    "email": ""
+  }
+}
