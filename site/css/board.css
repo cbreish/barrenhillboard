@@ -1,6 +1,7 @@
 body {
     width: 1920px;
     background-color: #222222;
+    overflow:hidden;
 }
 
 .gridster {
