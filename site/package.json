@@ -1,8 +1,8 @@
 {
   "name": "site",
   "version": "0.0.0",
-  "description": "site",
-  "main": "app.js",
+  "description": "Barren Hill Fire Company Dashboard",
+  "main": "server.js",
   "author": {
     "name": "chris",
     "email": ""
@@ -16,5 +16,11 @@
     "koa-static-folder": "^0.1.6",
     "koa.io": "0.0.3"
   },
-  "post_update": "npm install"
+  "apps": [
+    {
+      "script":  "server.js",
+      "name": "barrenhillboard",
+      "post_update": [ "npm install" ]
+    }
+  ]
 }
