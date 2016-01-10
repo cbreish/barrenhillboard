@@ -15,5 +15,6 @@
     "koa-static": "^2.0.0",
     "koa-static-folder": "^0.1.6",
     "koa.io": "0.0.3"
-  }
+  },
+  "post_update": "npm install"
 }
