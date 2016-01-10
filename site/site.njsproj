@@ -34,11 +34,19 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="css\board.css" />
+    <Content Include="img\header2.png" />
+    <Content Include="img\sample.jpg" />
+    <Content Include="public\index.html" />
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="server.ts" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="js\" />
+    <Folder Include="img\" />
+    <Folder Include="public\" />
     <Folder Include="Scripts\" />
     <Folder Include="Scripts\typings\" />
     <Folder Include="Scripts\typings\node\" />
