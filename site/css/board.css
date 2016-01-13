@@ -128,16 +128,16 @@ p {
 .events .event {
     float:left;
     clear:both;
-    margin-bottom: 10px;
+    margin: 10px 0 0 0;
     background-color: rgba(0,0,0,0.2);
     width: 100%;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 0 5px 0;
+    overflow: hidden;
 }
 
 .events .date {
     float: left;
-    width: 90px;
+    width: 70px;
     border-right: 5px solid black;
 }
 
@@ -148,24 +148,25 @@ p {
 }
 
 .events .date .number {
-    font-size: 250%;
+    font-size: 32px;
 }
 
 .events .date .month{
-    font-size: 140%;
+    font-size: 24px;
 }
 
 .events .info {
     float: left;
     clear: none;
     text-align: left;
-    margin-top: 7px;
-    margin-left: 30px;
+    margin: 7px 0 0 20px;
+    padding: 0 0 0 0;
+    font-size: 16px;
 }
 
 .events .info .title {
     color: white;
-    font-size: 140%;
+    font-size: 24px;
 }
 
 .image {
