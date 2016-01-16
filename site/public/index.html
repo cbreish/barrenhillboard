@@ -16,27 +16,15 @@
                 </div>
             </li>
             <li data-row="1" data-col="4" data-sizex="1" data-sizey="4" id="officerList">></li>
-            <!--<li data-row="5" data-col="4" data-sizex="1" data-sizey="2"</li>
-            <li data-row="7" data-col="4" data-sizex="1" data-sizey="3"></li>-->
-            <!--<li data-row="5" data-col="1" data-sizex="1" data-sizey="1">
-                <div class="widget important color3">
-                    <h2>Trustee Meeting</h2>
-                    <p><span class="info">12/31/15 7:00pm</span></p>
-                </div>
-            </li>-->
             <!--<li data-row="6" data-col="1" data-sizex="1" data-sizey="1">
                 <div class="widget important color4">
                     <h2>Membership Meeting</h2>
                     <p><span class="info">12/31/15 7:30pm</span></p>
                 </div>
             </li>-->
-            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-                <div class="widget clock color4">
-                    <p class="dateline">Wednesday January 6th</p>
-                    <p class="timeline">6:49 pm</p>
-                </div>
-            </li>
-            <li data-row="2" data-col="1" data-sizex="1" data-sizey="2">
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" id="clock"></li>
+            <li data-row="2" data-col="1" data-sizex="1" data-sizey="2" id="weather"></li>
+            <!--<li data-row="2" data-col="1" data-sizex="1" data-sizey="2">
                 <div class="widget weather color2">
                     <div>
                         <p class="temperature"><span class="glyphicon glyphicon-cloud weatherIcon"></span>&nbsp;50&#xb0;</p>
@@ -47,7 +35,7 @@
                         <p class="description">Heavy rain starting tonight.</p>
                     </div>
                 </div>
-            </li>
+            </li>-->
             <li data-row="3" data-col="1" data-sizex="1" data-sizey="6">
                 <div class="widget events color3">
                     <div class="event">
@@ -152,19 +140,20 @@
                     </div>
                 </div>
             </li>
-            <li data-row="4" data-col="2" data-sizex="2" data-sizey="5">
-                <div class="widget image">
-                    <img src="/img/sample.jpg" />
-                </div>
-            </li>
+            <li data-row="4" data-col="2" data-sizex="2" data-sizey="5" id="images">></li>
         </ul>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.js"></script>
-    <script src="https://cdn.socket.io/socket.io-1.4.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/react.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.4/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
+    
     <script src="js/app.js"></script>
     <script type="text/jsx" src="js/components/OfficerList.jsx"></script>
+    <script type="text/jsx" src="js/components/Images.jsx"></script>
+    <script type="text/jsx" src="js/components/Clock.jsx"></script>
+    <script type="text/jsx" src="js/components/Weather.jsx"></script>
 </body>
 </html>

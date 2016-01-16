@@ -43,4 +43,10 @@ console.log('listening on ' + port);
 //Setup officer widget
 var officersWidget = require('./widgets/officers');
 var officers = new officersWidget.OfficerList(bus);
+//Setup images widget
+var imagesWidget = require('./widgets/images');
+var images = new imagesWidget.Images(bus);
+//Setup weather widget
+var weatherWidget = require('./widgets/weather');
+var weather = new weatherWidget.Weather(bus);
 //# sourceMappingURL=server.js.map

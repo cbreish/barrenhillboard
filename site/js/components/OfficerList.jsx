@@ -1,13 +1,9 @@
 ﻿var OfficerList = React.createClass({
     componentDidMount: function () {
-        var wtf = this;
+        var instance = this;
         socket.on('officers:update', function (data) {
-            wtf._updateOfficers(data);
+            instance.setState(data);
         });
-    },
-
-    _updateOfficers: function _updateOfficers(data) {
-        this.setState(data);
     },
 
     getInitialState: function () {

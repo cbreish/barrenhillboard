@@ -22,6 +22,8 @@ var OfficerList = (function () {
             if (_this.currentList >= _this.lists.length) {
                 _this.currentList = 0;
             }
+        };
+        this.updateWidgets = function () {
             console.log('Updating officers list');
             _this.bus.post({
                 event: 'widgetUpdate',
@@ -59,9 +61,10 @@ var OfficerList = (function () {
             { name: "Scott Yoder", title: "" },
         ]));
         var instance = this;
-        bus.subscribe({ event: 'userConnected' }, instance.rotateList);
-        schedule.scheduleJob('*/1 * * * *', function () {
+        bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
+        schedule.scheduleJob('*/15 * * * * *', function () {
             instance.rotateList();
+            instance.updateWidgets();
         });
         this.bus = bus;
     }

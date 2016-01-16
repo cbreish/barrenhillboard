@@ -66,10 +66,11 @@ class OfficerList {
             ]));
 
         var instance = this;
-        bus.subscribe({ event: 'userConnected' }, instance.rotateList);
+        bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
 
-        schedule.scheduleJob('*/1 * * * *', function () {
+        schedule.scheduleJob('*/15 * * * * *', function () {
             instance.rotateList();
+            instance.updateWidgets();
         });
 
         this.bus = bus;
@@ -78,7 +79,9 @@ class OfficerList {
     rotateList = () => {
         this.currentList++;
         if (this.currentList >= this.lists.length) { this.currentList = 0; }
+    }
 
+    updateWidgets = () => {
         console.log('Updating officers list');
         this.bus.post({
             event: 'widgetUpdate',
