@@ -14,7 +14,12 @@
     "koa-router": "^5.3.0",
     "koa-static": "^2.0.0",
     "koa-static-folder": "^0.1.6",
-    "koa.io": "0.0.3"
+    "node-schedule": "^0.6.0",
+    "react": "^0.14.6",
+    "simplebus": "0.0.4",
+    "socket.io": "^1.4.4",
+    "typed-react": "^3.4.1",
+    "webpack": "^1.12.11"
   },
   "scripts": {
     "start": "node --harmony server.js"
@@ -26,7 +31,9 @@
     {
       "script": "server.js",
       "name": "barrenhillboard",
-      "post_update": [ "npm install" ]
+      "post_update": [
+        "npm install"
+      ]
     }
   ]
 }
