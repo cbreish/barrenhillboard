@@ -7,10 +7,18 @@
         });
     },
 
+    componentDidUpdate: function() {
+        var skycons = new Skycons({"color": "white"});
+        var iconToday = React.findDOMNode(this.refs.iconToday);
+        skycons.add(iconToday, iconToday.dataset.icon);
+        skycons.play();
+    },
+
     getInitialState: function () {
         return {
             temp: '',
             description: '',
+            icon: '',
             feelsLike: '',
             nextHour: '',
             nextDay: ''
@@ -21,8 +29,11 @@
         return (
             <div className="widget weather color2">
                     <div>
-                        <p className="temperature"><span className="glyphicon glyphicon-cloud weatherIcon"></span>{this.state.temp}</p>
-                        <p className="description">{this.state.description} - Feels like {this.state.feelsLike}</p>
+                        <p className="temperature">
+                            <canvas id="iconToday" ref="iconToday" width="64" height="64" data-icon={this.state.icon} className="imgCircle"></canvas>
+                            {this.state.temp}&deg;
+                        </p>
+                        <p className="description">{this.state.description} - Feels like {this.state.feelsLike}&deg;</p>
                         <p className="header">Next Hour</p>
                         <p className="description">{this.state.nextHour}</p>
                         <p className="header">Next 24 Hours</p>
@@ -34,3 +45,4 @@
 });
 
 React.render(React.createElement(Weather, {}), document.getElementById('weather'));
+//<span className="glyphicon glyphicon-cloud weatherIcon"></span>

@@ -20,6 +20,7 @@ var Weather = (function () {
                 else {
                     instance.currentWeather.temp = Math.round(data.currently.temperature);
                     instance.currentWeather.description = data.currently.summary;
+                    instance.currentWeather.icon = data.currently.icon;
                     instance.currentWeather.feelsLike = Math.round(data.currently.apparentTemperature);
                     instance.currentWeather.nextHour = data.minutely.summary;
                     instance.currentWeather.nextDay = data.hourly.summary;
