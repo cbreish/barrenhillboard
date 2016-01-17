@@ -62,3 +62,14 @@ var images = new imagesWidget.Images(bus);
 //Setup weather widget
 var weatherWidget = require('./widgets/weather');
 var weather = new weatherWidget.Weather(bus);
+
+//Setup latest calls widget
+var latestWidget = require('./widgets/latest');
+var latest = new latestWidget.LatestCalls(bus);
+
+setTimeout(function () {
+    bus.post({
+        event: 'refreshClients'
+    });
+}, 2000);
+

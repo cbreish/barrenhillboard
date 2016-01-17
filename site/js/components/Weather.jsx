@@ -30,7 +30,7 @@
             <div className="widget weather color2">
                     <div>
                         <p className="temperature">
-                            <canvas id="iconToday" ref="iconToday" width="64" height="64" data-icon={this.state.icon} className="imgCircle"></canvas>
+                            <canvas id="iconToday" ref="iconToday" width="48" height="48" data-icon={this.state.icon} className="imgCircle"></canvas>
                             {this.state.temp}&deg;
                         </p>
                         <p className="description">{this.state.description} - Feels like {this.state.feelsLike}&deg;</p>

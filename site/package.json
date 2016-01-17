@@ -8,6 +8,8 @@
     "email": ""
   },
   "dependencies": {
+    "active911": "^1.1.1",
+    "es6-promise": "^3.0.2",
     "forecastio": "^0.2.0",
     "koa": "^1.1.2",
     "koa-body": "^1.4.0",
@@ -15,6 +17,7 @@
     "koa-router": "^5.3.0",
     "koa-static": "^2.0.0",
     "koa-static-folder": "^0.1.6",
+    "moment": "^2.11.1",
     "node-schedule": "^0.6.0",
     "react": "^0.14.6",
     "simplebus": "0.0.4",

@@ -40,6 +40,7 @@
     <Content Include="img\sample.jpg" />
     <Content Include="js\components\Clock.jsx" />
     <Content Include="js\components\Images.jsx" />
+    <Content Include="js\components\LatestCalls.jsx" />
     <Content Include="js\components\OfficerList.jsx" />
     <Content Include="js\components\Weather.jsx" />
     <Content Include="public\index.html" />
@@ -47,6 +48,7 @@
     <TypeScriptCompile Include="server.ts" />
     <Content Include="package.json" />
     <TypeScriptCompile Include="widgets\images.ts" />
+    <TypeScriptCompile Include="widgets\latest.ts" />
     <TypeScriptCompile Include="widgets\officers.ts" />
     <TypeScriptCompile Include="widgets\weather.ts" />
   </ItemGroup>

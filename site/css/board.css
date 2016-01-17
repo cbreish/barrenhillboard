@@ -94,14 +94,16 @@ p {
 	padding-right: 20px;
 }
 
-/*.important {
-	text-align: center;
-	vertical-align: middle;
+.important {
+	display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
 }
 
 .important .info {
 	color: white;
-}*/
+}
 
 .clock {
 	margin: 0 0 0 0;
@@ -230,13 +232,15 @@ p {
 }
 
 .weather .weatherIcon {
-	font-size: 48px;
+    vertical-align: middle;
+    line-height: 1.2;
 }
 
 .weather .temperature {
 	font-size: 48px;
 	line-height: 1.2;
 	color: white;
+    vertical-align: middle;
 }
 
 .weather .description {
@@ -245,6 +249,6 @@ p {
 .weather .header {
 	margin-top: 5px;
 	line-height: 1.2;
-	font-size: 28px;
+	font-size: 22px;
 	color: white;
 }
