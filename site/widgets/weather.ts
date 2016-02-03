@@ -42,12 +42,20 @@ class Weather {
                 console.log("Error fetching forcecast.io data: " + err);
             } else {
                 console.log('Finished fetching forecast.io data');
-                instance.currentWeather.temp = Math.round(data.currently.temperature);
-                instance.currentWeather.description = data.currently.summary;
-                instance.currentWeather.icon = data.currently.icon;
-                instance.currentWeather.feelsLike = Math.round(data.currently.apparentTemperature);
-                instance.currentWeather.nextHour = data.minutely.summary;
-                instance.currentWeather.nextDay = data.hourly.summary;
+                if (data.currently) {
+                    instance.currentWeather.temp = Math.round(data.currently.temperature);
+                    instance.currentWeather.description = data.currently.summary;
+                    instance.currentWeather.icon = data.currently.icon;
+                    instance.currentWeather.feelsLike = Math.round(data.currently.apparentTemperature);
+                }
+                
+                if (data.minutely) {
+                    instance.currentWeather.nextHour = data.minutely.summary;
+                }
+                
+                if (data.hourly) {
+                    instance.currentWeather.nextDay = data.hourly.summary;
+                }
             }
         });
     }
