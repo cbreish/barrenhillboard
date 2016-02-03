@@ -1,6 +1,6 @@
 ﻿"use strict"
 
-var schedule = require('node-schedule');
+var every = require('schedule').every;
 
 class Images {
 
@@ -16,7 +16,7 @@ class Images {
 
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
 
-        schedule.scheduleJob('*/30 * * * * *', function () {
+        every('30s').do( function () {
             instance.rotateImage();
             instance.updateWidgets();
         });

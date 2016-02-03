@@ -1,6 +1,6 @@
 ﻿"use strict"
 require('es6-promise').polyfill();
-var schedule = require('node-schedule');
+var every = require('schedule').every;
 var secrets = require('./../secrets');
 var active911 = new (require('active911')).RefreshClient(secrets.Active911Token);
 var moment = require('moment');
@@ -24,7 +24,7 @@ class LatestCalls {
         this.getCalls();
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
 
-        schedule.scheduleJob('*/5 * * * *', function () {
+        every('5m').do(function () {
             instance.getCalls();
         });
 
@@ -34,12 +34,10 @@ class LatestCalls {
     getCalls = () => {
         var instance = this;
         active911.getAlerts().then(function (alerts) {
-            console.log('*** Got alert list');
             Promise.all(alerts.map(function (alert) {
                 return active911.getAlert(alert.id);
             }))
                 .then(function (alertDetails) {
-                    console.log('*** Got alert details');
                     instance.calls = alertDetails.map(function (response: Alert) {
                         var call = new Call();
                         call.Type = instance.capitalizeFirstLetter(response.description);
@@ -56,7 +54,6 @@ class LatestCalls {
                         call.Location = instance.capitalizeFirstLetter(call.Location);
                         return call;
                         });
-                console.log('*** Finished mapping details');
                 instance.updateWidgets();
             });
         });

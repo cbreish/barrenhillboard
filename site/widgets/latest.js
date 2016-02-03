@@ -1,26 +1,20 @@
 "use strict";
 require('es6-promise').polyfill();
-var schedule = require('node-schedule');
+var every = require('schedule').every;
 var secrets = require('./../secrets');
 var active911 = new (require('active911')).RefreshClient(secrets.Active911Token);
 var moment = require('moment');
-var Call = (function () {
-    function Call() {
-    }
-    return Call;
-})();
-var LatestCalls = (function () {
-    function LatestCalls(bus) {
-        var _this = this;
-        this.getCalls = function () {
-            var instance = _this;
+class Call {
+}
+class LatestCalls {
+    constructor(bus) {
+        this.getCalls = () => {
+            var instance = this;
             active911.getAlerts().then(function (alerts) {
-                console.log('*** Got alert list');
                 Promise.all(alerts.map(function (alert) {
                     return active911.getAlert(alert.id);
                 }))
                     .then(function (alertDetails) {
-                    console.log('*** Got alert details');
                     instance.calls = alertDetails.map(function (response) {
                         var call = new Call();
                         call.Type = instance.capitalizeFirstLetter(response.description);
@@ -35,28 +29,27 @@ var LatestCalls = (function () {
                         call.Location = instance.capitalizeFirstLetter(call.Location);
                         return call;
                     });
-                    console.log('*** Finished mapping details');
                     instance.updateWidgets();
                 });
             });
         };
-        this.updateWidgets = function () {
+        this.updateWidgets = () => {
             console.log('Updating latest calls');
-            _this.bus.post({
+            this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'latest:update',
-                messageData: { calls: _this.calls }
+                messageData: { calls: this.calls }
             });
         };
         var instance = this;
         this.getCalls();
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
-        schedule.scheduleJob('*/5 * * * *', function () {
+        every('5m').do(function () {
             instance.getCalls();
         });
         this.bus = bus;
     }
-    LatestCalls.prototype.capitalizeFirstLetter = function (str) {
+    capitalizeFirstLetter(str) {
         if (!str || str.length == 0)
             return '';
         var pieces = str.split(" ");
@@ -65,38 +58,19 @@ var LatestCalls = (function () {
             pieces[i] = j + pieces[i].substr(1).toLowerCase();
         }
         return pieces.join(" ");
-    };
-    return LatestCalls;
-})();
+    }
+}
 exports.LatestCalls = LatestCalls;
-var Agency = (function () {
-    function Agency() {
-    }
-    return Agency;
-})();
-var Device = (function () {
-    function Device() {
-    }
-    return Device;
-})();
-var Response = (function () {
-    function Response() {
-    }
-    return Response;
-})();
-var Alert = (function () {
-    function Alert() {
-    }
-    return Alert;
-})();
-var Message = (function () {
-    function Message() {
-    }
-    return Message;
-})();
-var AlertResponse = (function () {
-    function AlertResponse() {
-    }
-    return AlertResponse;
-})();
+class Agency {
+}
+class Device {
+}
+class Response {
+}
+class Alert {
+}
+class Message {
+}
+class AlertResponse {
+}
 //# sourceMappingURL=latest.js.map

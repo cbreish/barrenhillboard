@@ -1,23 +1,21 @@
 "use strict";
-var schedule = require('node-schedule');
+var every = require('schedule').every;
 var ForecastIo = require('forecastio');
 var secrets = require('./../secrets');
-var CurrentWeather = (function () {
-    function CurrentWeather() {
-    }
-    return CurrentWeather;
-})();
-var Weather = (function () {
-    function Weather(bus) {
-        var _this = this;
-        this.getWeather = function () {
+class CurrentWeather {
+}
+class Weather {
+    constructor(bus) {
+        this.getWeather = () => {
             var forecastIo = new ForecastIo(secrets.ForecastIoApiKey);
-            var instance = _this;
+            var instance = this;
+            console.log('Fetching forecast.io data');
             forecastIo.forecast('40.0848523', '-75.2493311', function (err, data) {
                 if (err) {
                     console.log("Error fetching forcecast.io data: " + err);
                 }
                 else {
+                    console.log('Finished fetching forecast.io data');
                     instance.currentWeather.temp = Math.round(data.currently.temperature);
                     instance.currentWeather.description = data.currently.summary;
                     instance.currentWeather.icon = data.currently.icon;
@@ -27,25 +25,24 @@ var Weather = (function () {
                 }
             });
         };
-        this.updateWidgets = function () {
+        this.updateWidgets = () => {
             console.log('Updating weather');
-            _this.bus.post({
+            this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'weather:update',
-                messageData: _this.currentWeather
+                messageData: this.currentWeather
             });
         };
         this.currentWeather = new CurrentWeather();
         var instance = this;
         instance.getWeather();
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
-        schedule.scheduleJob('*/5 * * * *', function () {
+        every('5m').do(function () {
             instance.getWeather();
             instance.updateWidgets();
         });
         this.bus = bus;
     }
-    return Weather;
-})();
+}
 exports.Weather = Weather;
 //# sourceMappingURL=weather.js.map

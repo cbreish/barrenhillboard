@@ -1,6 +1,6 @@
 ﻿"use strict"
 
-var schedule = require('node-schedule');
+var every = require('schedule').every;
 
 class Officer {
     name: string;
@@ -68,11 +68,14 @@ class OfficerList {
         var instance = this;
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
 
-        schedule.scheduleJob('*/15 * * * * *', function () {
+
+        console.log('Setting officer update schedule');
+        every('15s').do(function () {
+            console.log('Officer update schedule triggered');
             instance.rotateList();
             instance.updateWidgets();
         });
-
+        console.log('Done setting officer update schedule');
         this.bus = bus;
     }
 

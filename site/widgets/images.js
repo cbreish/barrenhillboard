@@ -1,37 +1,35 @@
 "use strict";
-var schedule = require('node-schedule');
-var Images = (function () {
-    function Images(bus) {
-        var _this = this;
-        this.rotateImage = function () {
-            _this.currentImage = 'http://barrenhillboard.com/images/image' + _this.pad(_this.randomNumber(), 3) + '.jpg';
+var every = require('schedule').every;
+class Images {
+    constructor(bus) {
+        this.rotateImage = () => {
+            this.currentImage = 'http://barrenhillboard.com/images/image' + this.pad(this.randomNumber(), 3) + '.jpg';
         };
-        this.updateWidgets = function () {
+        this.updateWidgets = () => {
             console.log('Updating image');
-            _this.bus.post({
+            this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'images:update',
-                messageData: { image: _this.currentImage }
+                messageData: { image: this.currentImage }
             });
         };
-        this.randomNumber = function () {
-            return Math.floor(Math.random() * _this.maxImage) + 1;
+        this.randomNumber = () => {
+            return Math.floor(Math.random() * this.maxImage) + 1;
         };
         this.maxImage = 95;
         var instance = this;
         instance.rotateImage();
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
-        schedule.scheduleJob('*/30 * * * * *', function () {
+        every('30s').do(function () {
             instance.rotateImage();
             instance.updateWidgets();
         });
         this.bus = bus;
     }
-    Images.prototype.pad = function (n, width) {
+    pad(n, width) {
         n = n + '';
         return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
-    };
-    return Images;
-})();
+    }
+}
 exports.Images = Images;
 //# sourceMappingURL=images.js.map
