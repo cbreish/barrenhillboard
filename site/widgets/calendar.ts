@@ -97,7 +97,6 @@ function getAuth() {
     var auth = new googleAuth();
     var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
     oauth2Client.credentials = {
-        "access_token": secrets.GCalAccount.access_token,
         "refresh_token": secrets.GCalAccount.refresh_token
     };
     return oauth2Client;
