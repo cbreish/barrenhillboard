@@ -4,12 +4,16 @@ var every = require('schedule').every;
 var secrets = require('./../secrets');
 var active911 = new (require('active911')).RefreshClient(secrets.Active911Token);
 var moment = require('moment');
-class Call {
-}
-class LatestCalls {
-    constructor(bus) {
-        this.getCalls = () => {
-            var instance = this;
+var Call = (function () {
+    function Call() {
+    }
+    return Call;
+})();
+var LatestCalls = (function () {
+    function LatestCalls(bus) {
+        var _this = this;
+        this.getCalls = function () {
+            var instance = _this;
             active911.getAlerts().then(function (alerts) {
                 Promise.all(alerts.map(function (alert) {
                     return active911.getAlert(alert.id);
@@ -33,12 +37,12 @@ class LatestCalls {
                 });
             });
         };
-        this.updateWidgets = () => {
+        this.updateWidgets = function () {
             console.log('Updating latest calls');
-            this.bus.post({
+            _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'latest:update',
-                messageData: { calls: this.calls }
+                messageData: { calls: _this.calls }
             });
         };
         var instance = this;
@@ -49,7 +53,7 @@ class LatestCalls {
         });
         this.bus = bus;
     }
-    capitalizeFirstLetter(str) {
+    LatestCalls.prototype.capitalizeFirstLetter = function (str) {
         if (!str || str.length == 0)
             return '';
         var pieces = str.split(" ");
@@ -58,19 +62,38 @@ class LatestCalls {
             pieces[i] = j + pieces[i].substr(1).toLowerCase();
         }
         return pieces.join(" ");
-    }
-}
+    };
+    return LatestCalls;
+})();
 exports.LatestCalls = LatestCalls;
-class Agency {
-}
-class Device {
-}
-class Response {
-}
-class Alert {
-}
-class Message {
-}
-class AlertResponse {
-}
+var Agency = (function () {
+    function Agency() {
+    }
+    return Agency;
+})();
+var Device = (function () {
+    function Device() {
+    }
+    return Device;
+})();
+var Response = (function () {
+    function Response() {
+    }
+    return Response;
+})();
+var Alert = (function () {
+    function Alert() {
+    }
+    return Alert;
+})();
+var Message = (function () {
+    function Message() {
+    }
+    return Message;
+})();
+var AlertResponse = (function () {
+    function AlertResponse() {
+    }
+    return AlertResponse;
+})();
 //# sourceMappingURL=latest.js.map

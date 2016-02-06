@@ -38,6 +38,7 @@
     <Content Include="css\board.css" />
     <Content Include="img\header2.png" />
     <Content Include="img\sample.jpg" />
+    <Content Include="js\components\Calendar.jsx" />
     <Content Include="js\components\Clock.jsx" />
     <Content Include="js\components\Images.jsx" />
     <Content Include="js\components\LatestCalls.jsx" />
@@ -47,6 +48,7 @@
     <TypeScriptCompile Include="Scripts\typings\node\node.d.ts" />
     <TypeScriptCompile Include="server.ts" />
     <Content Include="package.json" />
+    <TypeScriptCompile Include="widgets\calendar.ts" />
     <TypeScriptCompile Include="widgets\images.ts" />
     <TypeScriptCompile Include="widgets\latest.ts" />
     <TypeScriptCompile Include="widgets\officers.ts" />

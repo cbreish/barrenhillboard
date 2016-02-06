@@ -1,20 +1,21 @@
 "use strict";
 var every = require('schedule').every;
-class Images {
-    constructor(bus) {
-        this.rotateImage = () => {
-            this.currentImage = 'http://barrenhillboard.com/images/image' + this.pad(this.randomNumber(), 3) + '.jpg';
+var Images = (function () {
+    function Images(bus) {
+        var _this = this;
+        this.rotateImage = function () {
+            _this.currentImage = 'http://barrenhillboard.com/images/image' + _this.pad(_this.randomNumber(), 3) + '.jpg';
         };
-        this.updateWidgets = () => {
+        this.updateWidgets = function () {
             console.log('Updating image');
-            this.bus.post({
+            _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'images:update',
-                messageData: { image: this.currentImage }
+                messageData: { image: _this.currentImage }
             });
         };
-        this.randomNumber = () => {
-            return Math.floor(Math.random() * this.maxImage) + 1;
+        this.randomNumber = function () {
+            return Math.floor(Math.random() * _this.maxImage) + 1;
         };
         this.maxImage = 95;
         var instance = this;
@@ -26,10 +27,11 @@ class Images {
         });
         this.bus = bus;
     }
-    pad(n, width) {
+    Images.prototype.pad = function (n, width) {
         n = n + '';
         return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
-    }
-}
+    };
+    return Images;
+})();
 exports.Images = Images;
 //# sourceMappingURL=images.js.map

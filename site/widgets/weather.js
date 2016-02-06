@@ -2,13 +2,17 @@
 var every = require('schedule').every;
 var ForecastIo = require('forecastio');
 var secrets = require('./../secrets');
-class CurrentWeather {
-}
-class Weather {
-    constructor(bus) {
-        this.getWeather = () => {
+var CurrentWeather = (function () {
+    function CurrentWeather() {
+    }
+    return CurrentWeather;
+})();
+var Weather = (function () {
+    function Weather(bus) {
+        var _this = this;
+        this.getWeather = function () {
             var forecastIo = new ForecastIo(secrets.ForecastIoApiKey);
-            var instance = this;
+            var instance = _this;
             console.log('Fetching forecast.io data');
             forecastIo.forecast('40.0848523', '-75.2493311', function (err, data) {
                 if (err) {
@@ -31,12 +35,12 @@ class Weather {
                 }
             });
         };
-        this.updateWidgets = () => {
+        this.updateWidgets = function () {
             console.log('Updating weather');
-            this.bus.post({
+            _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'weather:update',
-                messageData: this.currentWeather
+                messageData: _this.currentWeather
             });
         };
         this.currentWeather = new CurrentWeather();
@@ -49,6 +53,7 @@ class Weather {
         });
         this.bus = bus;
     }
-}
+    return Weather;
+})();
 exports.Weather = Weather;
 //# sourceMappingURL=weather.js.map

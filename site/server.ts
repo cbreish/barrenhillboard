@@ -67,6 +67,10 @@ var weather = new weatherWidget.Weather(bus);
 var latestWidget = require('./widgets/latest');
 var latest = new latestWidget.LatestCalls(bus);
 
+//Setup latest calendar widget
+var calendarWidget = require('./widgets/calendar');
+var calendar = new calendarWidget.Calendar(bus);
+
 setTimeout(function () {
     bus.post({
         event: 'refreshClients'
