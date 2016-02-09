@@ -48,7 +48,7 @@ var OfficerList = (function () {
             { name: "Bucky Swider", title: "Captain" },
             { name: "Jamie Viall", title: "Lieutenant" },
             { name: "Chris Hummel", title: "Lieutenant 1" },
-            { name: "Pat Dicicco", title: "Safety Officer" },
+ { name: "David Cox", title: "Lieutenant 2" },            { name: "Pat Dicicco", title: "Safety Officer" },
             { name: "Mike Gaffney", title: "Chief Engineer" },
             { name: "Scott Rotenbury", title: "Fire Police Captain" }
         ]));
