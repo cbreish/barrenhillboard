@@ -37,8 +37,9 @@ var OfficerList = (function () {
             { name: "Renard Rose", title: "President" },
             { name: "Ed Swift", title: "Vice President" },
             { name: "Sandy Byerly", title: "Secretary" },
-            { name: "Brendan Devlin", title: "Treasurer" }
-        ]));
+            { name: "Brendan Devlin", title: "Treasurer" },
+            { name: "John Lynch", title: "Financial Secretary" } 
+       ]));
         this.lists.push(new OfficerData('Fire Officers', [
             { name: "Chris Schwartz", title: "Chief" },
             { name: "Renard Rose", title: "Deputy Chief" },
