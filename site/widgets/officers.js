@@ -1,34 +1,31 @@
 "use strict";
 var every = require('schedule').every;
-var Officer = (function () {
-    function Officer(name, title) {
+class Officer {
+    constructor(name, title) {
         this.name = name;
         this.title = title;
     }
-    return Officer;
-})();
-var OfficerData = (function () {
-    function OfficerData(title, people) {
+}
+class OfficerData {
+    constructor(title, people) {
         this.title = title;
         this.people = people;
     }
-    return OfficerData;
-})();
-var OfficerList = (function () {
-    function OfficerList(bus) {
-        var _this = this;
-        this.rotateList = function () {
-            _this.currentList++;
-            if (_this.currentList >= _this.lists.length) {
-                _this.currentList = 0;
+}
+class OfficerList {
+    constructor(bus) {
+        this.rotateList = () => {
+            this.currentList++;
+            if (this.currentList >= this.lists.length) {
+                this.currentList = 0;
             }
         };
-        this.updateWidgets = function () {
+        this.updateWidgets = () => {
             console.log('Updating officers list');
-            _this.bus.post({
+            this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'officers:update',
-                messageData: _this.lists[_this.currentList]
+                messageData: this.lists[this.currentList]
             });
         };
         this.currentList = -1;
@@ -73,7 +70,6 @@ var OfficerList = (function () {
         console.log('Done setting officer update schedule');
         this.bus = bus;
     }
-    return OfficerList;
-})();
+}
 exports.OfficerList = OfficerList;
 //# sourceMappingURL=officers.js.map

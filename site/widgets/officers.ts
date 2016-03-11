@@ -37,7 +37,7 @@ class OfficerList {
                 { name: "Renard Rose", title: "President" },
                 { name: "Ed Swift", title: "Vice President" },
                 { name: "Sandy Byerly", title: "Secretary" },
-                { name: "Brendan Devlin", title: "Treasurer" }
+                { name: "Brendan Devlin", title: "Treasurer" },
                 { name: "John Lynch", title: "Financial Secretary" },
             ]));
 
