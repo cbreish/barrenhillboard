@@ -38,6 +38,7 @@ class OfficerList {
                 { name: "Ed Swift", title: "Vice President" },
                 { name: "Sandy Byerly", title: "Secretary" },
                 { name: "Brendan Devlin", title: "Treasurer" }
+                { name: "John Lynch", title: "Financial Secretary" },
             ]));
 
         this.lists.push(new OfficerData('Fire Officers',
@@ -49,6 +50,7 @@ class OfficerList {
                 { name: "Bucky Swider", title: "Captain" },
                 { name: "Jamie Viall", title: "Lieutenant" },
                 { name: "Chris Hummel", title: "Lieutenant 1" },
+                { name: "Dave Cox", title: "Lieutenant 2" },
                 { name: "Pat Dicicco", title: "Safety Officer" },
                 { name: "Mike Gaffney", title: "Chief Engineer" },
                 { name: "Scott Rotenbury", title: "Fire Police Captain" }
