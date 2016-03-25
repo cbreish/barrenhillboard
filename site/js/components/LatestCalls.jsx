@@ -42,7 +42,7 @@
 					var mapImg;
 
 					if (call.Latitude && call.Longitude && apiKey) {
-						mapUrl = "https://api.mapbox.com/v4/mapbox.streets-satellite/pin-l-fire-station+FF0000(" + call.Longitude + "," + call.Latitude + ")/" + call.Longitude + "," + call.Latitude + ",17/900x300.png?access_token=" + apiKey;
+						mapUrl = "https://api.mapbox.com/v4/mapbox.streets-satellite/pin-l-fire-station+FF0000(" + call.Longitude + "," + call.Latitude + ")/" + call.Longitude + "," + call.Latitude + ",17/900x240.png?access_token=" + apiKey;
 						mapImg = <img src={mapUrl} />;
 					}
 										
