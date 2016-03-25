@@ -2,11 +2,7 @@
 var every = require('schedule').every;
 var ForecastIo = require('forecastio');
 var secrets = require('./../secrets');
-var CurrentWeather = (function () {
-    function CurrentWeather() {
-    }
-    return CurrentWeather;
-})();
+
 var Weather = (function () {
     function Weather(bus) {
         var _this = this;
@@ -25,6 +21,7 @@ var Weather = (function () {
                         instance.currentWeather.description = data.currently.summary;
                         instance.currentWeather.icon = data.currently.icon;
                         instance.currentWeather.feelsLike = Math.round(data.currently.apparentTemperature);
+						instance.currentWeather.updated = data.currently.time;
                     }
                     if (data.minutely) {
                         instance.currentWeather.nextHour = data.minutely.summary;
@@ -43,7 +40,7 @@ var Weather = (function () {
                 messageData: _this.currentWeather
             });
         };
-        this.currentWeather = new CurrentWeather();
+        this.currentWeather = {};
         var instance = this;
         instance.getWeather();
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);

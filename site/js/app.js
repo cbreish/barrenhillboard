@@ -4,8 +4,8 @@
         widget_margins: [5, 5],
         min_cols: 4,
         max_cols: 4,
-        min_rows: 8,
-        max_rows: 8
+        min_rows: 10,
+        max_rows: 10
     }).width("auto");
         
     var url = window.location.href;

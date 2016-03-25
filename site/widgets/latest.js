@@ -31,6 +31,9 @@ var LatestCalls = (function () {
                         call.Location += response.address + ', ';
                         call.Location += response.city;
                         call.Location = instance.capitalizeFirstLetter(call.Location);
+						call.Latitude = response.latitude;
+						call.Longitude = response.longitude;
+						call.id = response.id;
                         return call;
                     });
                     instance.updateWidgets();
@@ -42,7 +45,10 @@ var LatestCalls = (function () {
             _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'latest:update',
-                messageData: { calls: _this.calls }
+                messageData: { 
+					calls: _this.calls,
+					apiKey: secrets.MapBoxApiKey
+				}
             });
         };
         var instance = this;

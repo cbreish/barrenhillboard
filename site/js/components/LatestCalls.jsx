@@ -13,7 +13,8 @@
                 Type: '',
                 Time: '',
                 Location: ''
-            }]
+            }],
+			apiKey: ''
         };
     },
 
@@ -29,16 +30,28 @@
             arrows: false,
             vertical: true
         };
+		var apiKey = this.state.apiKey;
+		
         return (
             <div className="widget latest color5">
-                <h3 class="info">Latest Calls</h3>
+                <h3 className="info">Latest Calls</h3>
                 <Slider {...settings}>
                     {this.state.calls.map(function (call) {
-                    return <div>
+					
+					var mapUrl;
+					var mapImg;
+
+					if (call.Latitude && call.Longitude && apiKey) {
+						mapUrl = "https://api.mapbox.com/v4/mapbox.streets-satellite/pin-l-fire-station+FF0000(" + call.Longitude + "," + call.Latitude + ")/" + call.Longitude + "," + call.Latitude + ",17/900x300.png?access_token=" + apiKey;
+						mapImg = <img src={mapUrl} />;
+					}
+										
+                    return <div key={call.id}>
                             <div className="call">
                                 <p className="callType"><span className="glyphicon glyphicon-fire"></span>&nbsp;{call.Type}</p>
                                 <p className="callTime"><span className="glyphicon glyphicon-time"></span>&nbsp;{call.Time}</p>
                                 <p>{call.Location}</p>
+								{mapImg}
                             </div>
                         </div>
                     })}

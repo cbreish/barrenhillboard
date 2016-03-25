@@ -5,26 +5,20 @@ var googleAuth = require('google-auth-library');
 var moment = require('moment');
 var secrets = require('./../secrets');
 var fs = require('fs');
-var CalendarEvent = (function () {
-    function CalendarEvent(title, dateTime) {
-        this.title = title;
-        this.dateTime = dateTime;
-    }
-    return CalendarEvent;
-})();
+
 var Calendar = (function () {
     function Calendar(bus) {
         var _this = this;
         this.getEvents = function () {
             var instance = _this;
             var cal = google.calendar({ version: 'v3', auth: _this.auth });
-            var query = {
+            var query = {	
                 calendarId: 'bhfc@barrenhill.com',
                 timeMin: moment().toISOString(),
                 orderBy: 'startTime',
                 singleEvents: 'true',
                 timeZone: 'America/New_York',
-                maxResults: 10
+                maxResults: 12
             };
             console.log('Getting gcal data');
             cal.events.list(query, function (err, response) {
@@ -34,7 +28,7 @@ var Calendar = (function () {
                 else {
                     console.log('Recv gcal data: ' + JSON.stringify(response));
                     instance.events = response.items.map(function (incomingEvent) {
-                        var event = new CalendarEvent('', '');
+                        var event = {};
                         var start;
                         if (incomingEvent.start.date) {
                             start = moment(incomingEvent.start.date);
@@ -42,8 +36,10 @@ var Calendar = (function () {
                         if (incomingEvent.start.dateTime) {
                             start = moment(incomingEvent.start.dateTime);
                         }
-                        event.title = incomingEvent.summary;
+                        event.title = incomingEvent.summary.replace(/\s\-\s.*/, '');
+						event.title2 = incomingEvent.summary.replace(event.title, '').replace(/\s\-\s/, '');
                         event.dateTime = start;
+						event.id = incomingEvent.id;
                         return event;
                     });
                     instance.updateWidgets();

@@ -8,7 +8,7 @@
     },
 
     componentDidUpdate: function() {
-        var skycons = new Skycons({"color": "white"});
+        var skycons = new Skycons({"color": "black"});
         var iconToday = React.findDOMNode(this.refs.iconToday);
         skycons.add(iconToday, iconToday.dataset.icon);
         skycons.play();
@@ -28,9 +28,9 @@
     render: function () {
         return (
             <div className="widget weather color2">
-                    <div>
+                    <div className="body">
                         <p className="temperature">
-                            <canvas id="iconToday" ref="iconToday" width="48" height="48" data-icon={this.state.icon} className="imgCircle"></canvas>
+                            <canvas id="iconToday" ref="iconToday" width="72" height="72" data-icon={this.state.icon} className="imgCircle"></canvas>
                             {this.state.temp}&deg;
                         </p>
                         <p className="description">{this.state.description} - Feels like {this.state.feelsLike}&deg;</p>
@@ -39,6 +39,9 @@
                         <p className="header">Next 24 Hours</p>
                         <p className="description">{this.state.nextDay}</p>
                     </div>
+					<div className="footer">
+						<p>forecast.io - last updated {moment.unix(this.state.updated).fromNow()}</p>
+					</div>
                 </div>
             );
     }

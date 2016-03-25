@@ -1,6 +1,7 @@
 body {
 	width: 1920px;
-	background-color: #222222;
+	/*background-color: #222222;*/
+	background-color: rgba(0,0,0,0.1);
 	overflow:hidden;
 }
 
@@ -21,32 +22,37 @@ p {
 }
 
 .color1 {
-	background-color: #1757A8;
+	/*background-color: #1757A8;*/
+	background-color: white;
 }
 
 .color2 {
-	background-color: #0E3668;
+	/*background-color: #0E3668;*/
+	background-color: white;
 }
 
 .color3 {
-	background-color: #2078E8;
+	/*background-color: #2078E8;*/
+	background-color: white;
 }
 
 .color4 {
-	background-color: #227FF5;
+	/*background-color: #227FF5;*/
+	background-color: white;
 }
 
 .color5 {
-	background-color: #1C6BCE;
+	/*background-color: #1C6BCE;*/
+	background-color: white;
 }
 
 .widget {
 	text-align: center;
 	vertical-align: middle;
-	color: rgba(255,255,255,0.7);
-	/*color: rgba(0,0,0,0.7);*/
-	height: 100%;
+	/*color: rgba(255,255,255,0.7);*/
+	color: rgba(0,0,0,0.7);
 	padding: 10px;
+	height: 100%;
 	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -74,13 +80,14 @@ p {
     justify-content:center;
     align-items:center;
     flex-direction: column;
+	height: 550px;
 }
 
 .officers  .title{
 	float: right;
 	clear: both;
-	/*color: black;*/
-	color: white;
+	color: black;
+	/*color: white;*/
 }
 
 .officers  .name{
@@ -112,50 +119,45 @@ p {
 .clock p {
 	line-height: 1.2;
 	font-size: 32px;
-	color: white;
-}
-
-.calendar table {
-	width: 100%;
-}
-
-.calendar .month {
-	text-align: center;
-}
-
-.calendar .days td {
-	border: 1px solid black;
-}
-
-.calendar .dates td {
-	border: 1px solid black;
+	color: black;
 }
 
 .events {
 	width: 100%;
+	height: 95%;
+	display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-direction: column;
 }
 
 .events .event {
-	float:left;
-	clear:both;
-	margin: 10px 0 0 0;
+	margin: 0 0 0 0;
 	background-color: rgba(0,0,0,0.2);
 	width: 100%;
 	padding: 5px 0 5px 0;
 	overflow: hidden;
 }
 
+.events .datetime {
+}
+
 .events .date {
 	float: left;
-	width: 70px;
-	border-right: 5px solid black;
     margin-right: 7px;
+	border-right: 5px solid black;
+	width: 70px;
+	height: 72px;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .events p {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
-	line-height: 1.0;
+	line-height: 1.1;
 }
 
 .events .date .number {
@@ -168,13 +170,18 @@ p {
 
 .events .info {
 	text-align: left;
-	margin: 7px 0 0 20px;
+	margin: 0 0 0 20px;
 	padding: 0 0 0 0;
-	font-size: 16px;
+	display: flex;
+    flex-direction: column;
+}
+
+.events .info p {
+	height: 24px;
 }
 
 .events .info .title {
-	color: white;
+	color: black;
     white-space:nowrap;
 	font-size: 24px;
 }
@@ -188,12 +195,15 @@ p {
 	max-height: 100%;
 	max-width: 100%;
 	margin: 0;
+	padding: 0;
     margin-left: auto;
     margin-right: auto;
 }
 
 .latest {
 	width: 100%;
+	padding: 10px 10px 10px 10px;
+	height: 425px;
 }
 
 .latest h3 {
@@ -203,7 +213,7 @@ p {
 
 .latest .call{
 	text-align: left;
-	background-color: rgba(0,0,0,0.3);
+	background-color: rgba(0,0,0,0.2);
 	padding: 5px 5px 5px 5px;
 }
 
@@ -222,13 +232,36 @@ p {
 	width: 50%;
 	text-align: right;
 }
+.latest img {
+	padding-top: 20px;
+	/*width: 860px;
+	height: 275px;*/
+}
+
 
 .weather {
 	text-align: center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
 }
 
 .weather p {
 	margin: 0 0 0 0;
+}
+
+.weather .body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+	flex-grow: 1;
+}
+
+.weather .footer p {
+	color: rgba(0,0,0,0.3);
+	font-size: 16px;
 }
 
 .weather .weatherIcon {
@@ -237,9 +270,9 @@ p {
 }
 
 .weather .temperature {
-	font-size: 48px;
+	font-size: 72px;
 	line-height: 1.2;
-	color: white;
+	color: black;
     vertical-align: middle;
 }
 
@@ -247,8 +280,8 @@ p {
 }
 
 .weather .header {
-	margin-top: 5px;
+	margin-top: 10px;
 	line-height: 1.2;
 	font-size: 22px;
-	color: white;
+	color: black;
 }
