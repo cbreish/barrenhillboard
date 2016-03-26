@@ -1,6 +1,8 @@
 body {
 	width: 1920px;
-	/*background-color: #222222;*/
+	/*background-image: url(http://localhost:1338/img/red.png);
+	background-repeat: no-repeat;
+	background-size: 1920px 1080px;*/
 	background-color: rgba(0,0,0,0.1);
 	overflow:hidden;
 }

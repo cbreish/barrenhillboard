@@ -1,6 +1,6 @@
 ﻿$(function () {
     $(".gridster ul").gridster({
-        widget_base_dimensions: [460, 115],
+        widget_base_dimensions: [460, 110],
         widget_margins: [5, 5],
         min_cols: 4,
         max_cols: 4,
