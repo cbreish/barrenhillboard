@@ -5,6 +5,8 @@ body {
 	background-size: 1920px 1080px;*/
 	background-color: rgba(0,0,0,0.1);
 	overflow:hidden;
+	font-family: Verdana, Geneva, sans-serif;
+	font-weight: bold;
 }
 
 .gridster {
@@ -55,7 +57,6 @@ p {
 	color: rgba(0,0,0,0.7);
 	padding: 10px;
 	height: 100%;
-	font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
 	overflow: hidden;
 }
 
@@ -89,11 +90,17 @@ p {
 	float: right;
 	clear: both;
 	color: black;
+	font-weight: 500;
 	/*color: white;*/
 }
 
 .officers  .name{
+font-weight: 500;
 	clear: both;
+}
+
+.officers h2 {
+	font-weight: 600;
 }
 
 .officers div {
@@ -138,10 +145,6 @@ p {
 	width: 100%;
 	padding: 5px 0 5px 0;
 	overflow: hidden;
-	font-weight: 500;
-}
-
-.events .datetime {
 }
 
 .events .date {
@@ -159,7 +162,6 @@ p {
 .events p {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
-	line-height: 1.1;
 }
 
 .events .date .number {
@@ -176,16 +178,27 @@ p {
 	padding: 0 0 0 0;
 	display: flex;
     flex-direction: column;
-}
-
-.events .info p {
-	height: 24px;
+	justify-content: space-between;
+	height: 72px;
 }
 
 .events .info .title {
 	color: black;
     white-space:nowrap;
+	font-weight: 500;
 	font-size: 24px;
+}
+
+.events .info .title:first-of-type {
+}
+
+.events .info .title:nth-of-type(2) {
+	flex-shrink: 1;
+}
+
+.events .datetime {
+	font-size: 16px;
+	bottom: 0px;
 }
 
 .image {
@@ -222,6 +235,10 @@ p {
 	margin: 0 0 0 0;
 	padding: 0 0 0 0;
 	line-height: 1.2;
+}
+
+.latest .call p:nth-of-type(3) {
+	font-weight: 500;
 }
 
 .latest .call .callType {
@@ -278,6 +295,8 @@ p {
 }
 
 .weather .description {
+	font-weight: 500;
+	font-size: 24px;
 }
 
 .weather .header {
