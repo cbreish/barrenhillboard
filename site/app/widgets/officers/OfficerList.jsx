@@ -1,7 +1,9 @@
-﻿var OfficerList = React.createClass({
+﻿import React from 'react';
+
+var OfficerList = React.createClass({
     componentDidMount: function () {
         var instance = this;
-        socket.on('officers:update', function (data) {
+        this.props.socket.on('officers:update', function (data) {
             instance.setState(data);
         });
     },
@@ -26,5 +28,4 @@
     }
 });
 
-React.render(React.createElement(OfficerList, {}), document.getElementById('officerList'));
-
+export default OfficerList;

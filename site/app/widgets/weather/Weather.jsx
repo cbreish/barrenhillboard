@@ -1,15 +1,20 @@
-﻿var Weather = React.createClass({
+﻿import React from 'react';
+import ReactDom from 'react-dom';
+import Moment from 'moment';
+import Skycons from 'skycons';
+
+var Weather = React.createClass({
         
     componentDidMount: function () {
         var instance = this;
-        socket.on('weather:update', function (data) {
+        this.props.socket.on('weather:update', function (data) {
             instance.setState(data);
         });
     },
 
     componentDidUpdate: function() {
         var skycons = new Skycons({"color": "black"});
-        var iconToday = React.findDOMNode(this.refs.iconToday);
+        var iconToday = ReactDom.findDOMNode(this.refs.iconToday);
         skycons.add(iconToday, iconToday.dataset.icon);
         skycons.play();
     },
@@ -40,12 +45,11 @@
                         <p className="description">{this.state.nextDay}</p>
                     </div>
 					<div className="footer">
-						<p>forecast.io - last updated {moment.unix(this.state.updated).fromNow()}</p>
+						<p>forecast.io - last updated {Moment.unix(this.state.updated).fromNow()}</p>
 					</div>
                 </div>
             );
     }
 });
 
-React.render(React.createElement(Weather, {}), document.getElementById('weather'));
-//<span className="glyphicon glyphicon-cloud weatherIcon"></span>
+export default Weather;

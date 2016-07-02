@@ -1,7 +1,7 @@
 "use strict";
 require('es6-promise').polyfill();
 var every = require('schedule').every;
-var secrets = require('./../secrets');
+var secrets = require('./../../../secrets');
 var active911 = new (require('active911')).RefreshClient(secrets.Active911Token);
 var moment = require('moment');
 var Call = (function () {
@@ -71,7 +71,12 @@ var LatestCalls = (function () {
     };
     return LatestCalls;
 })();
-exports.LatestCalls = LatestCalls;
+var create = function(bus) {
+	var widget = new LatestCalls(bus);
+}
+
+module.exports = create;
+
 var Agency = (function () {
     function Agency() {
     }

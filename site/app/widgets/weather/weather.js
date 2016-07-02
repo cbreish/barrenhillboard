@@ -1,7 +1,7 @@
 "use strict";
 var every = require('schedule').every;
 var ForecastIo = require('forecastio');
-var secrets = require('./../secrets');
+var secrets = require('./../../../secrets');
 
 var Weather = (function () {
     function Weather(bus) {
@@ -52,5 +52,8 @@ var Weather = (function () {
     }
     return Weather;
 })();
-exports.Weather = Weather;
-//# sourceMappingURL=weather.js.map
+var create = function(bus) {
+	var widget = new Weather(bus);
+}
+
+module.exports = create;

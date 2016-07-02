@@ -71,5 +71,9 @@ class OfficerList {
         this.bus = bus;
     }
 }
-exports.OfficerList = OfficerList;
+var create = function(bus) {
+	var widget = new OfficerList(bus);
+}
+module.exports = create;
+
 //# sourceMappingURL=officers.js.map

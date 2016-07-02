@@ -33,5 +33,7 @@ var Images = (function () {
     };
     return Images;
 })();
-exports.Images = Images;
-//# sourceMappingURL=images.js.map
+var create = function(bus) {
+	var widget = new Images(bus);
+}
+module.exports = create;

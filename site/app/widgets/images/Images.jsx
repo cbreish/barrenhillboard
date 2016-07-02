@@ -1,7 +1,9 @@
-﻿var Images = React.createClass({
+﻿import React from 'react';
+
+var Images = React.createClass({
     componentDidMount: function () {
         var instance = this;
-        socket.on('images:update', function (data) {
+        this.props.socket.on('images:update', function (data) {
             instance._updateImage(data);
         });
     },
@@ -24,5 +26,5 @@
     }
 });
 
-React.render(React.createElement(Images, {}), document.getElementById('images'));
+export default Images;
 

@@ -1,8 +1,11 @@
-﻿var Clock = React.createClass({
+﻿import React from 'react';
+import Moment from 'moment';
+
+var Clock = React.createClass({
         
     updateDate: function() {
         this.setState({
-            dateTime: moment()
+            dateTime: Moment()
         });
     },
     
@@ -12,7 +15,7 @@
 
     getInitialState: function () {
         return {
-            dateTime: moment()
+            dateTime: Moment()
         };
     },
 
@@ -26,5 +29,4 @@
     }
 });
 
-React.render(React.createElement(Clock, {}), document.getElementById('clock'));
-
+export default Clock;

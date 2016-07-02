@@ -6,12 +6,9 @@ var koaBody = require('koa-body');
 var koa = require('koa');
 var app = koa();
 
-
-
 //Setup koa routes
 app.use(serve('./public'));
 app.use(serveFolder('./css'));
-app.use(serveFolder('./js'));
 app.use(serveFolder('./img'));
 
 //Setup koa app
@@ -50,27 +47,16 @@ var port = 1338;
 server.listen(port);
 console.log('listening on ' + port);
 
-
-//Setup officer widget
-var officersWidget = require('./widgets/officers');
-var officers = new officersWidget.OfficerList(bus);
-
-//Setup images widget
-var imagesWidget = require('./widgets/images');
-var images = new imagesWidget.Images(bus);
-
-//Setup weather widget
-var weatherWidget = require('./widgets/weather');
-var weather = new weatherWidget.Weather(bus);
-
-//Setup latest calls widget
-var latestWidget = require('./widgets/latest');
-var latest = new latestWidget.LatestCalls(bus);
-
-//Setup latest calendar widget
-var calendarWidget = require('./widgets/calendar');
-var calendar = new calendarWidget.Calendar(bus);
-
+//import widgets
+var glob = require('glob');
+glob.sync('./app/widgets/**/*.js')
+	.forEach(function(file,index,array) {
+		console.log('requiring ' + file);
+		var widget = require('./' + file);
+		console.log(widget);
+		widget(bus);
+	});
+	
 setTimeout(function () {
     bus.post({
         event: 'refreshClients'

@@ -1,8 +1,11 @@
-﻿var LatestCalls = React.createClass({
+﻿import React from 'react';
+import Slider from 'react-slick';
+
+var LatestCalls = React.createClass({
         
     componentDidMount: function () {
         var instance = this;
-        socket.on('latest:update', function (data) {
+        this.props.socket.on('latest:update', function (data) {
             instance.setState(data);
         });
     },
@@ -61,4 +64,4 @@
     }
 });
 
-React.render(React.createElement(LatestCalls, {}), document.getElementById('latest'));
+export default LatestCalls;

@@ -3,7 +3,7 @@ var every = require('schedule').every;
 var google = require('googleapis');
 var googleAuth = require('google-auth-library');
 var moment = require('moment');
-var secrets = require('./../secrets');
+var secrets = require('./../../../secrets');
 var fs = require('fs');
 
 var Calendar = (function () {
@@ -65,7 +65,14 @@ var Calendar = (function () {
     }
     return Calendar;
 })();
-exports.Calendar = Calendar;
+var create = function(bus) {
+	var widget = new Calendar(bus);
+}
+
+module.exports = create;
+
+
+
 function getAuth() {
     var clientSecret = secrets.GCalAccount.client_secret;
     var clientId = secrets.GCalAccount.client_id;
