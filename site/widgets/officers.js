@@ -45,7 +45,7 @@ class OfficerList {
             { name: "Bucky Swider", title: "Captain" },
             { name: "Jamie Viall", title: "Lieutenant" },
             { name: "Chris Hummel", title: "Lieutenant 1" },
-            { name: "Chris Breish", title: "Lieutenant 2" },
+            { name: "Dave Cox", title: "Lieutenant 2" },
             { name: "Pat Dicicco", title: "Safety Officer" },
             { name: "Mike Gaffney", title: "Chief Engineer" },
             { name: "Scott Rotenbury", title: "Fire Police Captain" }
