@@ -32,7 +32,6 @@ class OfficerList {
         this.lists = new Array();
         this.lists.push(new OfficerData('Administrative Officers', [
             { name: "Renard Rose", title: "President" },
-            { name: "Ed Swift", title: "Vice President" },
             { name: "Sandy Byerly", title: "Secretary" },
             { name: "Paul Stanish", title: "Treasurer" },
             { name: "John Lynch", title: "Financial Secretary" },
@@ -52,12 +51,12 @@ class OfficerList {
         ]));
         this.lists.push(new OfficerData('Trustees', [
             { name: "Shel Klein", title: "Chairman" },
-            { name: "Jamie Viall", title: "Secretary" },
             { name: "Pat Dicicco", title: "" },
             { name: "Tim Tygh", title: "" },
             { name: "William Keely", title: "" },
             { name: "John Lynch", title: "" },
             { name: "Scott Yoder", title: "" },
+            { name: "Chris Breish", title: "" },
         ]));
         var instance = this;
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
