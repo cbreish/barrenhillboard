@@ -15,8 +15,8 @@ var Images = (function () {
             });
         };
         this.getNextImage = function () {
-            specialShowing = !specialShowing;
-            if (specialShowing) {
+            _this.specialShowing = !_this.specialShowing;
+            if (_this.specialShowing) {
                 return 'image_special_' + _this.pad(_this.randomNumber(_this.maxSpecialImage), 3) + '.jpg';
             } else {
                 return 'image' + _this.pad(_this.randomNumber(_this.maxImage), 3) + '.jpg';
