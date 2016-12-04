@@ -4,7 +4,7 @@ var Images = (function () {
     function Images(bus) {
         var _this = this;
         this.rotateImage = function () {
-            _this.currentImage = 'http://barrenhillboard.com/images/image' + _this.pad(_this.randomNumber(), 3) + '.jpg';
+            _this.currentImage = 'http://barrenhillboard.com/images/' + _this.getNextImage();
         };
         this.updateWidgets = function () {
             console.log('Updating image');
@@ -14,10 +14,20 @@ var Images = (function () {
                 messageData: { image: _this.currentImage }
             });
         };
-        this.randomNumber = function () {
-            return Math.floor(Math.random() * _this.maxImage) + 1;
+        this.getNextImage = function () {
+            specialShowing = !specialShowing;
+            if (specialShowing) {
+                return 'image_special_' + _this.pad(_this.randomNumber(_this.maxSpecialImage), 3) + '.jpg';
+            } else {
+                return 'image' + _this.pad(_this.randomNumber(_this.maxImage), 3) + '.jpg';
+            }
         };
-        this.maxImage = 95;
+        this.randomNumber = function (max) {
+            return Math.floor(Math.random() * max) + 1;
+        };
+        this.specialShowing = false;
+        this.maxImage = 83;
+        this.maxSpecialImage = 1;
         var instance = this;
         instance.rotateImage();
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
