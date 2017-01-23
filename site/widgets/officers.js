@@ -32,7 +32,8 @@ class OfficerList {
         this.lists = new Array();
         this.lists.push(new OfficerData('Administrative Officers', [
             { name: "Renard Rose", title: "President" },
-            { name: "Sandy Byerly", title: "Secretary" },
+            { name: "Bucky Swider", title: "Vice President" },
+            { name: "Jamie Viall", title: "Secretary" },
             { name: "Paul Stanish", title: "Treasurer" },
             { name: "John Lynch", title: "Financial Secretary" },
         ]));
@@ -53,7 +54,7 @@ class OfficerList {
             { name: "Shel Klein", title: "Chairman" },
             { name: "Pat Dicicco", title: "" },
             { name: "Tim Tygh", title: "" },
-            { name: "William Keely", title: "" },
+            { name: "Shaun  Maher", title: "" },
             { name: "John Lynch", title: "" },
             { name: "Scott Yoder", title: "" },
             { name: "Chris Breish", title: "" },
