@@ -45,7 +45,7 @@ class OfficerList {
             { name: "Bucky Swider", title: "Captain" },
             { name: "Jamie Viall", title: "Lieutenant" },
             { name: "Chris Hummel", title: "Lieutenant 1" },
-            { name: "Chris Breish", title: "Lieutenant 2" },
+            { name: "Shaun Maher", title: "Lieutenant 2" },
             { name: "Pat Dicicco", title: "Safety Officer" },
             { name: "Mike Gaffney", title: "Chief Engineer" },
             { name: "Scott Rotenbury", title: "Fire Police Captain" }
@@ -62,7 +62,7 @@ class OfficerList {
         var instance = this;
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
         console.log('Setting officer update schedule');
-        every('15s').do(function () {
+        every('15s').do(function() {
             console.log('Officer update schedule triggered');
             instance.rotateList();
             instance.updateWidgets();
