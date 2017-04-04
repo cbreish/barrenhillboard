@@ -26,7 +26,7 @@ var Images = (function() {
             return Math.floor(Math.random() * max) + 1;
         };
         this.specialShowing = false;
-        this.maxImage = 57;
+        this.maxImage = 56;
         this.maxSpecialImage = 5;
         var instance = this;
         instance.rotateImage();
