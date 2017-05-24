@@ -21,7 +21,7 @@ class OfficerList {
             }
         };
         this.updateWidgets = () => {
-            console.log('Updating officers list');
+            //console.log('Updating officers list');
             this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'officers:update',
@@ -61,13 +61,13 @@ class OfficerList {
         ]));
         var instance = this;
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
-        console.log('Setting officer update schedule');
+        //console.log('Setting officer update schedule');
         every('15s').do(function() {
-            console.log('Officer update schedule triggered');
+            //console.log('Officer update schedule triggered');
             instance.rotateList();
             instance.updateWidgets();
         });
-        console.log('Done setting officer update schedule');
+        //console.log('Done setting officer update schedule');
         this.bus = bus;
     }
 }

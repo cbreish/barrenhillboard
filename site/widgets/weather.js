@@ -9,13 +9,13 @@ var Weather = (function () {
         this.getWeather = function () {
             var forecastIo = new ForecastIo(secrets.ForecastIoApiKey);
             var instance = _this;
-            console.log('Fetching forecast.io data');
+            //console.log('Fetching forecast.io data');
             forecastIo.forecast('40.0848523', '-75.2493311', function (err, data) {
                 if (err) {
                     console.log("Error fetching forcecast.io data: " + err);
                 }
                 else {
-                    console.log('Finished fetching forecast.io data');
+                    //console.log('Finished fetching forecast.io data');
                     if (data.currently) {
                         instance.currentWeather.temp = Math.round(data.currently.temperature);
                         instance.currentWeather.description = data.currently.summary;
@@ -33,7 +33,7 @@ var Weather = (function () {
             });
         };
         this.updateWidgets = function () {
-            console.log('Updating weather');
+            //console.log('Updating weather');
             _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'weather:update',

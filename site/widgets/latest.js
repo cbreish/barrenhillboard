@@ -41,7 +41,7 @@ var LatestCalls = (function () {
             });
         };
         this.updateWidgets = function () {
-            console.log('Updating latest calls');
+            //console.log('Updating latest calls');
             _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'latest:update',

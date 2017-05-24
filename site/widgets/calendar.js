@@ -20,13 +20,13 @@ var Calendar = (function () {
                 timeZone: 'America/New_York',
                 maxResults: 12
             };
-            console.log('Getting gcal data');
+            //console.log('Getting gcal data');
             cal.events.list(query, function (err, response) {
                 if (err) {
                     console.log('Error downloading gcal data: ' + err);
                 }
                 else {
-                    console.log('Recv gcal data: ' + JSON.stringify(response));
+                    //console.log('Recv gcal data: ' + JSON.stringify(response));
                     instance.events = response.items.map(function (incomingEvent) {
                         var event = {};
                         var start;
@@ -47,7 +47,7 @@ var Calendar = (function () {
             });
         };
         this.updateWidgets = function () {
-            console.log('Updating calendar');
+            //console.log('Updating calendar');
             _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'calendar:update',

@@ -7,7 +7,7 @@ var Images = (function() {
             _this.currentImage = 'http://barrenhillboard.com/images/' + _this.getNextImage();
         };
         this.updateWidgets = function() {
-            console.log('Updating image');
+            //console.log('Updating image');
             _this.bus.post({
                 event: 'widgetUpdate',
                 messageType: 'images:update',

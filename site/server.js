@@ -37,7 +37,7 @@ bus.subscribe({ event: 'refreshClients' }, function (msg) {
 });
 bus.subscribe({ event: 'widgetUpdate' }, function (msg) {
     //console.log('Connected: ' + io.of("/").connected.length);
-    console.log('Updating Widget: ' + JSON.stringify(msg));
+    //console.log('Updating Widget: ' + JSON.stringify(msg));
     io.sockets.emit(msg.messageType, msg.messageData);
 });
 
