@@ -33,7 +33,7 @@ class OfficerList {
         this.lists.push(new OfficerData('Administrative Officers', [
             { name: "Renard Rose", title: "President" },
             { name: "Bucky Swider", title: "Vice President" },
-            { name: "Jamie Viall", title: "Secretary" },
+            { name: "Gene Langerfeld", title: "Secretary" },
             { name: "Paul Stanish", title: "Treasurer" },
         ]));
         this.lists.push(new OfficerData('Fire Officers', [
@@ -44,7 +44,7 @@ class OfficerList {
             { name: "Bucky Swider", title: "Battalion Chief" },
             { name: "Jamie Viall", title: "Captain" },
             { name: "Chris Hummel", title: "Captain 1" },
-            { name: "Chris Breish", title: "Lieutenant" },
+            { name: "(Vacant)", title: "Lieutenant" },
             { name: "Shaun Maher", title: "Lieutenant 1" },
             { name: "Dave Cox", title: "Lieutenant 2" },
             { name: "Pat Dicicco", title: "Safety Officer" },
@@ -58,7 +58,7 @@ class OfficerList {
             { name: "Shaun  Maher", title: "" },
             { name: "John Lynch", title: "" },
             { name: "Scott Yoder", title: "" },
-            { name: "Chris Breish", title: "" },
+            { name: "Dave Cox", title: "" },
         ]));
         var instance = this;
         bus.subscribe({ event: 'userConnected' }, instance.updateWidgets);
