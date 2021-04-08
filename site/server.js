@@ -1,18 +1,17 @@
 ﻿var router = require('koa-router')();
-var serve = require('koa-static');
-var serveFolder = require('koa-static-folder');
+//var serve = require('koa-static');
+//var serveFolder = require('koa-static-folder');
+var serve = require('koa-static-resolver');
 var logger = require('koa-logger');
 var koaBody = require('koa-body');
-var koa = require('koa');
-var app = koa();
-
-
+var Koa = require('koa');
+var app = new Koa();
 
 //Setup koa routes
-app.use(serve('./public'));
-app.use(serveFolder('./css'));
-app.use(serveFolder('./js'));
-app.use(serveFolder('./img'));
+app.use(serve({
+    dirs: ["./public"],
+    defaultIndex: "index.html",
+}));
 
 //Setup koa app
 app.use(logger());
@@ -26,8 +25,28 @@ var server = require('http').Server(app.callback());
 var io = require('socket.io')(server);
 
 //Setup message bus
-var simplebus = require('simplebus');
-var bus = simplebus.createBus(1000);
+class Bus  {
+    constructor() {
+        this.events = {};
+    }
+
+    subscribe(event, func) {
+        if (!this.events[event.event]) {
+            this.events[event.event] = [];
+        }
+        this.events[event.event].push(func);
+    }
+
+    post(message) {
+        if (this.events[message.event]) {
+            for (let i=0; i<this.events[message.event].length; i++) {
+                this.events[message.event][i](message);
+            }
+        }
+    }
+}
+
+const bus = new Bus();
 bus.subscribe({ event: 'userConnected' }, function (msg) {
     console.log('User connected');
 });
@@ -64,10 +83,10 @@ var weatherWidget = require('./widgets/weather');
 var weather = new weatherWidget.Weather(bus);
 
 //Setup latest calls widget
-var latestWidget = require('./widgets/latest');
-var latest = new latestWidget.LatestCalls(bus);
+// var latestWidget = require('./widgets/latest');
+// var latest = new latestWidget.LatestCalls(bus);
 
-//Setup latest calendar widget
+// //Setup latest calendar widget
 var calendarWidget = require('./widgets/calendar');
 var calendar = new calendarWidget.Calendar(bus);
 
@@ -76,4 +95,3 @@ setTimeout(function () {
         event: 'refreshClients'
     });
 }, 2000);
-
