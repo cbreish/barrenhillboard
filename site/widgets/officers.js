@@ -34,7 +34,7 @@ class OfficerList {
             { name: "Renard Rose", title: "President" },
             { name: "Bucky Swider", title: "Vice President" },
             { name: "Gene Langerfeld", title: "Secretary" },
-            { name: "Paul Stanish", title: "Treasurer" },
+            { name: "Nancy Lee Walter", title: "Treasurer" },
         ]));
         this.lists.push(new OfficerData('Fire Officers', [
             { name: "Chris Schwartz", title: "Chief" },
@@ -55,7 +55,7 @@ class OfficerList {
             { name: "Shel Klein", title: "Chairman" },
             { name: "Pat Dicicco", title: "" },
             { name: "Tim Tygh", title: "" },
-            { name: "Shaun  Maher", title: "" },
+            { name: "Shaun Maher", title: "" },
             { name: "John Lynch", title: "" },
             { name: "Scott Yoder", title: "" },
             { name: "Dave Cox", title: "" },
