@@ -33,8 +33,8 @@ class OfficerList {
         this.lists.push(new OfficerData('Administrative Officers', [
             { name: "Renard Rose", title: "President" },
             { name: "Bucky Swider", title: "Vice President" },
-            { name: "Gene Langerfeld", title: "Secretary" },
-            { name: "Nancy Lee Walter", title: "Treasurer" },
+            { name: "Semeion Hall (acting)", title: "Secretary" },
+            { name: "Eli Anselm (acting)", title: "Treasurer" },
         ]));
         this.lists.push(new OfficerData('Fire Officers', [
             { name: "Chris Schwartz", title: "Chief" },
@@ -43,10 +43,10 @@ class OfficerList {
             { name: "Scott Yoder", title: "Assitant Chief 1" },
             { name: "Bucky Swider", title: "Battalion Chief" },
             { name: "Jamie Viall", title: "Captain" },
-            { name: "Chris Hummel", title: "Captain 1" },
+            { name: "Shaun Maher", title: "Captain 1" },
             { name: "(Vacant)", title: "Lieutenant" },
-            { name: "Shaun Maher", title: "Lieutenant 1" },
-            { name: "Dave Cox", title: "Lieutenant 2" },
+            { name: "Pat Gaffney", title: "Lieutenant 1" },
+            { name: "(Vacant)", title: "Lieutenant 2" },
             { name: "Pat Dicicco", title: "Safety Officer" },
             { name: "Mike Gaffney", title: "Chief Engineer" },
             { name: "Scott Rotenbury", title: "Fire Police Captain" }
@@ -54,9 +54,9 @@ class OfficerList {
         this.lists.push(new OfficerData('Trustees', [
             { name: "Shel Klein", title: "Chairman" },
             { name: "Pat Dicicco", title: "" },
-            { name: "Tim Tygh", title: "" },
+            { name: "Jamie Viall", title: "" },
             { name: "Shaun Maher", title: "" },
-            { name: "John Lynch", title: "" },
+            { name: "Pat Gaffney", title: "" },
             { name: "Scott Yoder", title: "" },
             { name: "Dave Cox", title: "" },
         ]));
